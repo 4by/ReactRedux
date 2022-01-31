@@ -2,12 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { buyIceCream } from '.'
 
-const IceCreamContainer = ({ numOfIceCreams, buyIceCream }) => (
+function IceCreamContainer ({numOfIceCreams, buyIceCream}) {
+  return (
     <div>
-      <h2>IceCream": {numOfIceCreams}</h2>
-      <input type='text' value={numOfIceCreams} onChange={e => buyIceCream(e.target.value)} />
+      <h2>Number of ice creams - {numOfIceCreams} </h2>
+      <button onClick={buyIceCream}>Buy Ice Cream</button>
     </div>
-)
+  )
+}
 
 const mapStateToProps = state => {
   return { numOfIceCreams: state.iceCream.numOfIceCreams }

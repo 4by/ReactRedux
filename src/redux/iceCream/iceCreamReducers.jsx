@@ -1,11 +1,19 @@
 import { BUY_ICECREAM } from './iceCreamArgs'
 
-const initialState = {numOfIceCreams: 0}
+const initialState = {
+  numOfIceCreams: 20
+}
 
-export default(state = initialState, action) => {
+const iceCreamReducer = (state = initialState, action) => {
+  console.log(action.type)
   switch (action.type) {
-    case BUY_ICECREAM: return {...state,  numOfIceCreams: action.payload}
+    case BUY_ICECREAM: return {
+      ...state,
+      numOfIceCreams: state.numOfIceCreams - 1
+    }
+
     default: return state
   }
 }
 
+export default iceCreamReducer
