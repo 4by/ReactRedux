@@ -1,5 +1,5 @@
 import React from 'react'
-import { addManyCustomersAction } from "./asyncActions";
+import { addManyCustomersAction } from "./customerActions";
 import axios from 'axios'
 
 const axiosGetObj = {

@@ -9,7 +9,7 @@ function App() {
     <Provider store={store}>
       <div className='App'>
         <Cash yes />
-        <Customer yes />
+        <Customer />
       </div>
     </Provider>
   )

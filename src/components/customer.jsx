@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { customerPropsBinder, customerFunsBinder } from '../redux/stateBinder'
+import { customerPropsBinder, customerFunsBinder } from '../redux/customer/customerStateBinder'
 
 
 const App = ({ customer, addCustomer, removeCustomer, fetchCustomers }) => (

@@ -1,4 +1,4 @@
-import { ADD_CASH, GET_CASH } from './asyncConsts'
+import { ADD_CASH, GET_CASH } from './cashConsts'
 
 const defaultState = {
     cash: 5
