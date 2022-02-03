@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { buyCake } from '.'
+import { buyCakeAction } from '.'
 
 const CakeContainer = ({ numOfCakes, buyCake }) => (
     <div>
@@ -14,7 +14,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return { buyCake: number => dispatch(buyCake(number)) }
+  return { buyCake: number => dispatch(buyCakeAction(number)) }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer)

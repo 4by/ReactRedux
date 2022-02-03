@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { buyIceCream } from '.'
+import { buyIceCreamAction } from '.'
 
 function IceCreamContainer ({numOfIceCreams, buyIceCream}) {
   return (
@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return { buyIceCream: number => dispatch(buyIceCream(number)) }
+  return { buyIceCream: number => dispatch(buyIceCreamAction(number)) }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(IceCreamContainer)
