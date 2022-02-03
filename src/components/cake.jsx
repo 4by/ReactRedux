@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { buyCakeAction } from '.'
+import { numOfCakesBind, buyCakeBind } from '../redux/stateBinder'
 
 const CakeContainer = ({ numOfCakes, buyCake }) => (
     <div>
@@ -9,12 +9,6 @@ const CakeContainer = ({ numOfCakes, buyCake }) => (
     </div>
 )
 
-const mapStateToProps = state => {
-  return { numOfCakes: state.cake.numOfCakes }
-}
 
-const mapDispatchToProps = dispatch => {
-  return { buyCake: number => dispatch(buyCakeAction(number)) }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer)
+export default connect(numOfCakesBind, buyCakeBind)(CakeContainer)

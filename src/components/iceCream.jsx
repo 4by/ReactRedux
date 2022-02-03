@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { buyIceCreamAction } from '.'
+import { numOfIceCreamsBind, buyIceCreamBind } from '../redux/stateBinder'
 
-function IceCreamContainer ({numOfIceCreams, buyIceCream}) {
+function IceCreamContainer({ numOfIceCreams, buyIceCream }) {
   return (
     <div>
       <h2>Number of ice creams - {numOfIceCreams} </h2>
@@ -11,12 +11,6 @@ function IceCreamContainer ({numOfIceCreams, buyIceCream}) {
   )
 }
 
-const mapStateToProps = state => {
-  return { numOfIceCreams: state.iceCream.numOfIceCreams }
-}
 
-const mapDispatchToProps = dispatch => {
-  return { buyIceCream: number => dispatch(buyIceCreamAction(number)) }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(IceCreamContainer)
+export default connect(numOfIceCreamsBind, buyIceCreamBind)(IceCreamContainer)

@@ -1,9 +1,26 @@
-import { buyCake } from "./cake/cakeArgs"
+import { buyCakeAction, buyIceCreamAction } from '.'
 
-export const dataBind = state => {
-    return { numOfCakes: state.cake.numOfCakes }
-}
+export const numOfCakesBind = state => ({ numOfCakes: state.cake.numOfCakes })
+export const buyCakeBind = dispatch => ({ buyCake: number => dispatch(buyCakeAction(number)) })
 
-export const reducerBind = dispatch => {
-    return { buyCake: number => dispatch(buyCake(number)) }
-}
+export const numOfIceCreamsBind = state => ({ numOfIceCreams: state.iceCream.numOfIceCreams })
+export const buyIceCreamBind = dispatch => ({ buyIceCream: number => dispatch(buyIceCreamAction(number)) })
+
+
+
+export const numOfItemsBind = (state, ownProps) => (
+    {
+        numOfItems: ownProps.cake
+            ? state.cake.numOfCakes
+            : state.iceCream.numOfIceCreams
+    }
+)
+
+export const buyItemBind = (dispatch, ownProps) => (
+    {
+        buyItem: ownProps.cake
+            ? () => dispatch(buyCakeAction())
+            : () => dispatch(buyIceCreamAction())
+    }
+)
+
