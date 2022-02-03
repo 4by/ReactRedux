@@ -1,9 +1,11 @@
-import { createStore, applyMiddleware } from 'redux'
-// import { composeWithDevTools } from 'redux-devtools-extension'
-// import logger from 'redux-logger'
-// import thunk from 'redux-thunk'
-import HandlersUnion from './handlersUnion'
+import {createStore, combineReducers, applyMiddleware} from "redux";
+import {cashReducer} from "./async/cashReducer";
+import {customerReducer} from './async/customerReducer'
+import thunk from "redux-thunk";
 
-export default createStore(HandlersUnion,
-  //  (applyMiddleware(logger, thunk)
-   )
+const rootReducer = combineReducers({
+    cashState: cashReducer,
+    customerState: customerReducer
+})
+
+export default createStore(rootReducer, applyMiddleware(thunk));

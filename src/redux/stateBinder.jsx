@@ -1,26 +1,23 @@
-import { buyCakeAction, buyIceCreamAction } from '.'
+import { addCustomerAction, removeCustomerAction, addCashAction, getCashAction } from "./async/asyncActions";
+import fetchCustomers from "./async/asyncQuery";
 
-export const numOfCakesBind = state => ({ numOfCakes: state.cake.numOfCakes })
-export const buyCakeBind = dispatch => ({ buyCake: number => dispatch(buyCakeAction(number)) })
+export const cashPropsBinder = (state, ownProps) => ({
+    cash: ownProps.yes
+    ? state.cashState.cash + ' | компонент вызван c пропсом "yes"'
+    : state.cashState.cash + ' | компонент вызван без проса "yes"',
+})
 
-export const numOfIceCreamsBind = state => ({ numOfIceCreams: state.iceCream.numOfIceCreams })
-export const buyIceCreamBind = dispatch => ({ buyIceCream: number => dispatch(buyIceCreamAction(number)) })
+export const customerPropsBinder = state => ({
+    customer: state.customerState.customer
+})
 
+export const cashFunsBinder = dispatch => ({
+    addCash: number => dispatch(addCashAction(number)),
+    getCash: number => dispatch(getCashAction(number)),
+})
 
-
-export const numOfItemsBind = (state, ownProps) => (
-    {
-        numOfItems: ownProps.cake
-            ? state.cake.numOfCakes
-            : state.iceCream.numOfIceCreams
-    }
-)
-
-export const buyItemBind = (dispatch, ownProps) => (
-    {
-        buyItem: ownProps.cake
-            ? () => dispatch(buyCakeAction())
-            : () => dispatch(buyIceCreamAction())
-    }
-)
-
+export const customerFunsBinder = dispatch => ({
+    addCustomer: name => dispatch(addCustomerAction({ name, id: Date.now() })),
+    removeCustomer: customer => dispatch(removeCustomerAction(customer.id)),
+    fetchCustomers: () => dispatch(fetchCustomers()),
+})
