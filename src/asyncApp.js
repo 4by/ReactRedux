@@ -1,13 +1,16 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import thunkStore from './redux/async/thunk/store'
-import Thunk from './components/thunk'
+
+import store from './redux/async/saga'
+import Thunk from './components/thunk(connect)'
+import Saga from './components/saga(hooks)'
 
 function App() {
   return (
-    <Provider store={thunkStore}>
+    <Provider store={store}>
       <div className='App'>
-        <Thunk />
+        {/* <Thunk /> */}
+        <Saga />
       </div>
     </Provider>
   )

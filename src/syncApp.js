@@ -1,9 +1,9 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import syncStore from './redux/sync/store'
-import CashConnect from './components/cashConnect'
-import CashHook from './components/cashHook'
-import Customer from './components/customer'
+import CashConnect from './components/cash(connect)'
+import CashHook from './components/cash(hooks)'
+import Customer from './components/customer(connect)'
 
 function App() {
   return (
