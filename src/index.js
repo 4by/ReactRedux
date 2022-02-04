@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import SyncApp from './syncApp';
+import AsyncApp from './asyncApp';
 
 
 ReactDOM.render(
     <React.StrictMode>
-            <App />
+            {/* <SyncApp /> */}
+            <AsyncApp />
     </React.StrictMode>,
     document.getElementById('root')
 );

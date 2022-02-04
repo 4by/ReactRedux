@@ -1,17 +1,15 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import store from './redux/async/store'
+import syncStore from './redux/sync/store'
 import Cash from './components/cash'
 import Customer from './components/customer'
-import Async from './components/async'
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={syncStore}>
       <div className='App'>
-        {/* <Cash yes /> */}
-        {/* <Customer /> */}
-        <Async />
+        <Cash yes />
+        <Customer />
       </div>
     </Provider>
   )

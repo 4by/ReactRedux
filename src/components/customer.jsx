@@ -10,8 +10,8 @@ const App = ({ customer, addCustomer, removeCustomer, fetchCustomers }) => (
             customer.length > 0
                 ?
                 <div>
-                    {customer.map(customer =>
-                        <div onClick={() => removeCustomer(customer)}>{customer.name}</div>
+                    {customer.map((e, i) =>
+                        <div key={i} onClick={() => removeCustomer(e)}>{e.name}</div>
                     )}
                 </div>
                 :
