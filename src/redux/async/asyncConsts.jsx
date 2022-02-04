@@ -1,0 +1,1 @@
+export const ADD_MANY_ASYNC = 'ADD_MANY_ASYNC'

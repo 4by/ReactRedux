@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { cashPropsBinder, cashFunsBinder } from '../redux/cash/cashStateBinder'
+import { cashPropsBinder, cashFunsBinder } from '../redux/sync/cash/cashStateBinder'
 
 
 const App = ({ cash, addCash, getCash }) => (

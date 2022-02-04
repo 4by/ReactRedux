@@ -1,11 +1,9 @@
 import {createStore, combineReducers, applyMiddleware} from "redux";
-import {cashReducer} from "./cash/cashReducer";
-import {customerReducer} from './customer/customerReducer'
+import {asyncReducer} from './asyncReducer'
 import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
-    cashState: cashReducer,
-    customerState: customerReducer
+    asyncState: asyncReducer
 })
 
 export default createStore(rootReducer, applyMiddleware(thunk));

@@ -1,5 +1,5 @@
 import React from 'react'
-import { addManyCustomersAction } from "./customerActions";
+import { addManyAsyncAction } from "./asyncActions";
 import axios from 'axios'
 
 const axiosGetObj = {
@@ -11,6 +11,5 @@ const axiosGetObj = {
 export default () => (dispatch) => (
     axios(axiosGetObj)
         .then(resp => resp.data)
-        .then(resp => dispatch(addManyCustomersAction(resp)))
+        .then(resp => dispatch(addManyAsyncAction(resp)))
 )
-
