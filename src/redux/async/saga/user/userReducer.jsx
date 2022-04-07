@@ -1,4 +1,4 @@
-import {SET_USERS} from './userConsts'
+import USER_CONSTS from './userConsts'
 
 
 const defaultState = {
@@ -7,7 +7,7 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
     switch(action.type) {
-        case SET_USERS:
+        case USER_CONSTS.SET_USERS:
             return {...state, users: action.payload}
     }
     return state

@@ -6,8 +6,8 @@ import AsyncApp from './asyncApp';
 
 ReactDOM.render(
     <React.StrictMode>
-            {/* <SyncApp /> */}
-            <AsyncApp />
+            <SyncApp />
+            {/* <AsyncApp /> */}
     </React.StrictMode>,
     document.getElementById('root')
 );

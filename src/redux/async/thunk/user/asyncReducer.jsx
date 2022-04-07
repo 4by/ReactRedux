@@ -1,4 +1,4 @@
-import { ADD_MANY_ASYNC } from './asyncConsts'
+import ADD_MANY_ASYNC from './asyncConsts'
 
 const defaultState = { async: [] }
 export const asyncReducer = (state = defaultState, action) => {
