@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { asyncPropsBinder, asuncFunsBinder } from '../redux/async/thunk/asyncActionCreator'
+import { thunkPropsBinder, thunkFunsBinder } from '../redux/async/thunk/thunkActionCreator'
 
 
 const App = ({ users, fetch }) => (
@@ -15,5 +15,5 @@ const App = ({ users, fetch }) => (
 
 
 
-export default connect(asyncPropsBinder, asuncFunsBinder)(App)
+export default connect(thunkPropsBinder, thunkFunsBinder)(App)
 
