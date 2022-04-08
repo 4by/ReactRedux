@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { cashPropsBinder, cashFunsBinder } from '../redux/sync/cash/cashStateBinder'
+import { cashPropsBinder, cashFunsBinder } from '../redux/sync/cash/cashActionCreator'
 
 
 const App = ({ cash, addCash, getCash }) => (
@@ -10,7 +10,6 @@ const App = ({ cash, addCash, getCash }) => (
     </div>
 )
 
-
-
+//connect вытягивает свойства из actionCreator и отправляет их в props элемента
 export default connect(cashPropsBinder, cashFunsBinder)(App)
 
