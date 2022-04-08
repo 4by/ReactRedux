@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga'
 import {rootWatcher} from "./combineSaga";
 
 const rootReducer = combineReducers({
-    userReducer
+    sagaState: userReducer
 })
 
 const sagaMiddleware = createSagaMiddleware()

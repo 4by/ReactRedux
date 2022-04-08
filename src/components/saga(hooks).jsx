@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../redux/async/users/userActions";
 
 export default () => {
-    const users = useSelector(state => state.userReducer.users)
+    const users = useSelector(state => state.sagaState.users)
     const dispatch = useDispatch()
     return (
         <div>
