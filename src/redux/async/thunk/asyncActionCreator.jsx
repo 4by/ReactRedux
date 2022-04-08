@@ -1,5 +1,5 @@
-import addManyAsyncAction from "./asyncActions";
-import fetchCustomers from "../asyncQuery";
+import {setUsers} from "../users/userActions";
+import fetchCustomers from "./asyncQuery";
 
 export const asyncPropsBinder = state => ({ users: state.asyncState.users })
 
@@ -7,5 +7,5 @@ export const asyncPropsBinder = state => ({ users: state.asyncState.users })
 // c помощью thunk можно делать dispatch в стейт не обьектов,
 // а функций, которые 1) принимают action, 2) возвращают диспатч этого экшна 
 export const asuncFunsBinder = dispatch => ({
-    fetch: () => dispatch(fetchCustomers(addManyAsyncAction)),
+    fetch: () => dispatch(fetchCustomers(setUsers)),
 })
