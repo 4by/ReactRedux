@@ -1,9 +1,10 @@
 import ADD_MANY_ASYNC from './asyncConsts'
 
-const defaultState = { async: [] }
-export const asyncReducer = (state = defaultState, action) => {
+const defaultState = { users: [] }
+
+export default (state = defaultState, action) => {
     switch (action.type) {
-        case ADD_MANY_ASYNC: return { ...state, async: [...state.async, ...action.payload] }
+        case ADD_MANY_ASYNC: return { ...state, users: [...state.users, ...action.payload] }
         default: return state;
     }
 }

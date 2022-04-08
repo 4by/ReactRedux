@@ -1,7 +1,7 @@
 import addManyAsyncAction from "./asyncActions";
 import fetchCustomers from "../asyncQuery";
 
-export const asyncPropsBinder = state => ({ async: state.asyncState.async })
+export const asyncPropsBinder = state => ({ users: state.asyncState.users })
 
 // посколько асинхонно-приходящие данные нельзя вернуть из фунции:
 // c помощью thunk можно делать dispatch в стейт не обьектов,

@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { asyncReducer } from './user/asyncReducer'
+import asyncReducer from './user/asyncReducer'
 import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
