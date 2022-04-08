@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "../redux/async/saga/user/userActions";
+import { fetchUsers } from "../redux/async/users/userActions";
 
 export default () => {
     const users = useSelector(state => state.userReducer.users)

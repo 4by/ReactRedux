@@ -1,5 +1,5 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
-import userReducer from "./user/userReducer";
+import userReducer from "../users/userReducer";
 import createSagaMiddleware from 'redux-saga'
 import {rootWatcher} from "./combineSaga";
 

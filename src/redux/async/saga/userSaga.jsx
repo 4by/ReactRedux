@@ -1,6 +1,6 @@
 import { put, takeEvery, call } from "redux-saga/effects"
-import USER_CONSTS from './userConsts'
-import { setUsers } from "./userActions";
+import USER_CONSTS from '../users/userConsts'
+import { setUsers } from "../users/userActions";
 
 const fetchUsersFromApi = () => fetch('https://jsonplaceholder.typicode.com/users?_limit=10')
 
