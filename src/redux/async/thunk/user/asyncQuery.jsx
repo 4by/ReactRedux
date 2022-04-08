@@ -7,6 +7,4 @@ const axiosGetObj = {
     responseType: 'json'
 }
 
-export default (action) => (dispatch) => (
-    axios(axiosGetObj).then(resp => dispatch(action(resp.data)))
-)
+export default action => dispatch => axios(axiosGetObj).then(resp => dispatch(action(resp.data)))
