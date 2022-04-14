@@ -3,7 +3,7 @@ import USER_CONSTS from '../users/userConsts'
 import { setUsers } from "../users/userActions";
 
 //возвращает промис с результатом (статусы и тд)
-const fetchUsersFromApi = () => fetch('https://jsonplaceholder.typicode.com/users?_limit=10')
+const getPromise = () => fetch('https://jsonplaceholder.typicode.com/users?_limit=10')
 
 //принимает результат промиса 
 //возвращает промис с результатом: ответ сервера
@@ -24,9 +24,9 @@ export function* userWatcher() {
 
 function* fetchUserWorker() {
     // возвращает результат промиса
-    // второй вариант: yield call(fetchUsersFromApi)
+    // второй вариант: yield call(getPromise)
     // call принимает не промис а ф-ю, возвращающую промис
-    const data = yield fetchUsersFromApi()
+    const data = yield getPromise()
     const json = yield getAnswer(data)
     yield delay(1000)
     //put совершает dispatch прямо из асинхронной ф-и
