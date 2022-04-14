@@ -2,10 +2,15 @@ import { put, takeEvery, call } from "redux-saga/effects"
 import USER_CONSTS from '../users/userConsts'
 import { setUsers } from "../users/userActions";
 
+//возвращает промис с результатом (статусы и тд)
 const fetchUsersFromApi = () => fetch('https://jsonplaceholder.typicode.com/users?_limit=10')
 
-const delay = (ms) => new Promise(res => setTimeout(res, ms))
+//принимает результат промиса 
+//возвращает промис с результатом: ответ сервера
+const getAnswer = (arg) => new Promise(res => res(arg.json()))
 
+//возвращает промис без результата (через задержку в размере ms) 
+const delay = (ms) => new Promise(res => setTimeout(res, ms))
 
 
 export function* userWatcher() {
@@ -18,9 +23,12 @@ export function* userWatcher() {
 
 
 function* fetchUserWorker() {
-    //call вытягивает результат из промиса
-    const data = yield call(fetchUsersFromApi)
-    const json = yield call(() => new Promise(res => res(data.json())))
+    // возвращает результат промиса
+    // второй вариант: yield call(fetchUsersFromApi)
+    // call принимает не промис а ф-ю, возвращающую промис
+    const data = yield fetchUsersFromApi()
+    const json = yield getAnswer(data)
+    console.log(delay(1000))
     yield delay(1000)
     //put совершает dispatch прямо из асинхронной ф-и
     yield put(setUsers(json))
