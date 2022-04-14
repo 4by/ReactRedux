@@ -28,7 +28,6 @@ function* fetchUserWorker() {
     // call принимает не промис а ф-ю, возвращающую промис
     const data = yield fetchUsersFromApi()
     const json = yield getAnswer(data)
-    console.log(delay(1000))
     yield delay(1000)
     //put совершает dispatch прямо из асинхронной ф-и
     yield put(setUsers(json))
