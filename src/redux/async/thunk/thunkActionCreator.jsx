@@ -1,5 +1,5 @@
 import {setUsers} from "../users/userActions";
-import fetchCustomers from "./asyncQuery";
+import {axiosQuery} from '../asyncQuery'
 
 export const thunkPropsBinder = state => ({ users: state.thunkState.users })
 
@@ -7,5 +7,5 @@ export const thunkPropsBinder = state => ({ users: state.thunkState.users })
 // c помощью thunk можно делать dispatch в стейт не обьектов,
 // а функций, которые 1) принимают action, 2) возвращают ф-ю, в-ю диспатч этого экшна 
 export const thunkFunsBinder = dispatch => ({
-    fetch: () => dispatch(fetchCustomers(setUsers)),
+    fetch: () => dispatch(axiosQuery(setUsers)),
 })
