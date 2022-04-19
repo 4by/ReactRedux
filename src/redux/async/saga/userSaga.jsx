@@ -1,15 +1,15 @@
 import { put, takeEvery, call } from "redux-saga/effects"
 import USER_CONSTS from '../users/userConsts'
 import { setUsers } from "../users/userActions";
-import { getPromise, getAnswer, delay } from "../asyncQuery";
+import { axiosSagaQuery, delay } from "../asyncQuery";
 
 
 function* fetchUserWorker() {
     // возвращает результат промиса
-    // второй вариант: yield call(getPromise)
+    // второй вариант: yield call(axiosSagaQuery)
     // call принимает не промис а ф-ю, возвращающую промис
-    const data = yield getPromise()
-    const json = yield getAnswer(data)
+    // через call удобнее проводить тесты, поэтому он мб предпочтительнее
+    const json = (yield axiosSagaQuery()).data
     yield delay(1000)
     //put совершает dispatch прямо из асинхронной ф-и
     yield put(setUsers(json))
